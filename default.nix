@@ -1,6 +1,8 @@
 (import ./reflex-platform {
   config.android_sdk.accept_license = true;
 }).project ({ pkgs, ... }: {
+  useWarp = true;
+
   packages = {
     common = ./common;
     backend = ./backend;
