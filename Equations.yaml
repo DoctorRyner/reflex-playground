@@ -1,7 +1,13 @@
+let:
+- uuid: CEDC708C-D542-4675-BD3B-D20071E853F3
+
 iOS-build: nix-build -o build/ios -A ios.frontend
 android-build: nix-build -o android-result -A android.frontend
 
 web-build-ghc: nix-build -o build/frontend-native -A ghc.frontend
 web-build-ghcjs: nix-build -o build/frontend -A ghcjs.frontend
 
-
+iOS-test: |
+    open -a Simulator --args -CurrentDeviceUDID <uuid>
+    xcrun simctl install <uuid> ios-result/frontend.app
+    xcrun simctl launch --console $uuid reflex-test

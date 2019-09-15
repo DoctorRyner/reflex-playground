@@ -1,7 +1,0 @@
-iOS-build: nix-build -o build/ios -A ios.frontend
-android-build: nix-build -o android-result -A android.frontend
-
-web-build-ghc: nix-build -o build/frontend-native -A ghc.frontend
-web-build-ghcjs: nix-build -o build/frontend -A ghcjs.frontend
-
-

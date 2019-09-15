@@ -1,7 +1,7 @@
 (import ./reflex-platform {
   config.android_sdk.accept_license = true;
 }).project ({ pkgs, ... }: {
-  useWarp = true;
+  # useWarp = true;
 
   packages = {
     common = ./common;
@@ -12,6 +12,7 @@
   shells = {
     ghc = ["common" "backend" "frontend"];
     ghcjs = ["common" "frontend"];
+    iosAarch64 = ["common" "frontend"];
   };
 
   android.frontend = {
@@ -23,6 +24,6 @@
   ios.frontend = {
     executableName = "frontend";
     bundleIdentifier = "org.example.frontend";
-    bundleName = "Example iOS App";
+    bundleName = "HelloReflex";
   };
 })
